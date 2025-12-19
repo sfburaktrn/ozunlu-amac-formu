@@ -1,0 +1,42 @@
+// Prisma Schema for Strategic Goal Form Application
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Form {
+  id           String         @id @default(cuid())
+  createdAt    DateTime       @default(now())
+  employeeName String
+  department   String
+  subject      String?
+  priority     String         // DÜŞÜK, ORTA, YÜKSEK
+  resultText   String         @db.Text
+  currentValue String?
+  targetValue  String?
+  responses    FormResponse[]
+}
+
+model FormResponse {
+  id          String @id @default(cuid())
+  formId      String
+  questionKey String // v1, v2, v3, etc.
+  answer      String // JSON array for checkboxes, single value for radio
+  form        Form   @relation(fields: [formId], references: [id], onDelete: Cascade)
+
+  @@index([formId])
+  @@index([questionKey])
+}
