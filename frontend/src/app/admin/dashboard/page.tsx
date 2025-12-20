@@ -133,7 +133,10 @@ export default function AdminDashboard() {
             {/* Header */}
             <header className="bg-white shadow-sm border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                    <h1 className="text-xl font-bold text-gray-800">Yönetici Paneli</h1>
+                    <div className="flex items-center gap-3">
+                        <img src="/ozunlu_logo.jpg" alt="Özünlü Logo" className="h-10 object-contain" />
+                        <h1 className="text-xl font-bold text-gray-800 border-l pl-3 border-gray-300">Yönetici Paneli</h1>
+                    </div>
                     <div className="flex items-center gap-4">
                         <div className="text-sm text-gray-500">Hoşgeldiniz, Ufuk Özünlü</div>
                         <button

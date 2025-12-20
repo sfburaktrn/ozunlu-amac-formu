@@ -39,6 +39,9 @@ export default function AdminLogin() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-200">
+                <div className="flex justify-center mb-6">
+                    <img src="/ozunlu_logo.jpg" alt="Özünlü Logo" className="h-12 object-contain" />
+                </div>
                 <h1 className="text-2xl font-bold text-gray-900 mb-6 text-center">Yönetici Girişi</h1>
 
                 {error && (

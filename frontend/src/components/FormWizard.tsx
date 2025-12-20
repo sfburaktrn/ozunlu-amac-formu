@@ -137,6 +137,9 @@ export default function FormWizard() {
     if (currentStep === 0) {
         return (
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl border border-gray-100 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="flex justify-center mb-6">
+                    <img src="/ozunlu_logo.jpg" alt="Özünlü Logo" className="h-16 object-contain" />
+                </div>
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6">
                     Stratejik Amaç Belirleme
                 </h1>
