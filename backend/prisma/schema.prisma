@@ -23,6 +23,7 @@ model Form {
   employeeName String
   department   String
   subject      String?
+  description  String?        @db.Text  // Opsiyonel konu detayı alanı
   priority     String         // DÜŞÜK, ORTA, YÜKSEK
   resultText   String         @db.Text
   currentValue String?

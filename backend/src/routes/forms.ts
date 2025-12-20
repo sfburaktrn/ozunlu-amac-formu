@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
             employeeName,
             Department,
             subject,
+            description,
             responses,
         } = req.body;
 
@@ -26,6 +27,7 @@ router.post('/', async (req, res) => {
                 employeeName: employeeName || 'Unknown',
                 department: Department || 'Unknown',
                 subject: subject || '',
+                description: description || null,
                 responses: {
                     create: responses.map((r: any) => ({
                         questionKey: r.questionKey,

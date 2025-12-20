@@ -8,6 +8,7 @@ interface FormState {
     employeeName: string;
     department: string;
     subject: string;
+    description: string;
     answers: Record<string, string | string[]>;
     currentValue?: string;
     targetValue?: string;
@@ -22,6 +23,7 @@ export default function FormWizard() {
         employeeName: "",
         department: "",
         subject: "",
+        description: "",
         answers: {},
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,6 +111,7 @@ export default function FormWizard() {
                 employeeName: formData.employeeName,
                 Department: formData.department,
                 subject: formData.subject,
+                description: formData.description,
                 priority: result.priority,
                 resultText: result.text,
                 currentValue: formData.currentValue,
@@ -177,6 +180,18 @@ export default function FormWizard() {
                             value={formData.department}
                             onChange={(e) => setFormData({ ...formData, department: e.target.value })}
                             className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-black"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Konuyu Detaylandır <span className="text-gray-400 font-normal">(Opsiyonel)</span>
+                        </label>
+                        <textarea
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-black resize-none"
+                            placeholder="Konu hakkında ek açıklama ekleyebilirsiniz..."
+                            value={formData.description}
+                            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                            rows={3}
                         />
                     </div>
                 </div>

@@ -43,6 +43,7 @@ interface FormRecord {
     employeeName: string;
     department: string;
     subject: string;
+    description?: string;
     priority: string;
     resultText: string;
     responses?: { questionKey: string; answer: any }[];
@@ -239,9 +240,10 @@ export default function AdminDashboard() {
                                 <tr>
                                     <th className="px-6 py-4 font-semibold">Tarih</th>
                                     <th className="px-6 py-4 font-semibold">Konu</th>
+                                    <th className="px-6 py-4 font-semibold">Detay</th>
                                     <th className="px-6 py-4 font-semibold">Personel / Departman</th>
                                     <th className="px-6 py-4 font-semibold">Öncelik</th>
-                                    <th className="px-6 py-4 font-semibold w-1/2">Sonuç Metni</th>
+                                    <th className="px-6 py-4 font-semibold w-1/3">Sonuç Metni</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100">
@@ -256,6 +258,11 @@ export default function AdminDashboard() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="text-sm font-semibold text-gray-900">{form.subject || '-'}</div>
+                                        </td>
+                                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
+                                            <div className="truncate" title={form.description || ''}>
+                                                {form.description || '-'}
+                                            </div>
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="text-sm font-medium text-gray-900">{form.employeeName}</div>
@@ -325,6 +332,14 @@ export default function AdminDashboard() {
                                         <label className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 block">Konu</label>
                                         <div className="text-gray-900 font-medium text-lg">{selectedForm.subject || '-'}</div>
                                     </div>
+                                    {selectedForm.description && (
+                                        <div className="col-span-2">
+                                            <label className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 block">Konuyu Detaylandır</label>
+                                            <div className="text-gray-700 bg-gray-50 p-3 rounded-lg mt-1 whitespace-pre-wrap">
+                                                {selectedForm.description}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Result Box */}
