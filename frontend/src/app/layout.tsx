@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Stratejik Amac Belirleme Formu",
   description: "Kurumsal stratejik amac belirleme ve analiz platformu",
+  icons: {
+    icon: "/ozunlu_logo.jpg",
+    shortcut: "/ozunlu_logo.jpg",
+    apple: "/ozunlu_logo.jpg",
+  },
 };
 
 export default function RootLayout({
